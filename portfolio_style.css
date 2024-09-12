@@ -1,0 +1,69 @@
+/* Starry Background Animation */
+.App {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    color: white;
+    text-align: center;
+  }
+  
+  .stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+  
+  .stars {
+    background: url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+    z-index: 0;
+    animation: move-stars 200s linear infinite;
+  }
+  
+  .twinkling {
+    background: url('https://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+    z-index: 1;
+    animation: move-twinkling 100s linear infinite;
+  }
+  
+  .clouds {
+    background: url('https://www.script-tutorials.com/demos/360/images/clouds3.png') repeat top center;
+    z-index: 2;
+    animation: move-clouds 300s linear infinite;
+  }
+  
+  /* Animations */
+  @keyframes move-stars {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+  }
+  
+  @keyframes move-twinkling {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 1000px; }
+  }
+  
+  @keyframes move-clouds {
+    from { background-position: 0 0; }
+    to { background-position: 10000px 0; }
+  }
+  
+  /* Styling for the Content */
+  .App-header {
+    position: relative;
+    z-index: 3;
+    padding-top: 150px;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  p {
+    font-size: 1.5em;
+  }
+  

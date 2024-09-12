@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shraman Ratna Tuladhar - Data Science Portfolio</title>
+    <!-- Add Font Awesome from CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* General Styling */
+        /* Starry Background Animation */
+.App {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+    color: white;
+    text-align: center;
+  }
+  
+  .stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+  }
+  
+  .stars {
+    background: url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+    z-index: 0;
+    animation: move-stars 200s linear infinite;
+  }
+  
+  .twinkling {
+    background: url('https://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+    z-index: 1;
+    animation: move-twinkling 100s linear infinite;
+  }
+  
+  .clouds {
+    background: url('https://www.script-tutorials.com/demos/360/images/clouds3.png') repeat top center;
+    z-index: 2;
+    animation: move-clouds 300s linear infinite;
+  }
+  
+  /* Animations */
+  @keyframes move-stars {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+  }
+  
+  @keyframes move-twinkling {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 1000px; }
+  }
+  
+  @keyframes move-clouds {
+    from { background-position: 0 0; }
+    to { background-position: 10000px 0; }
+  }
+  
+  /* Styling for the Content */
+  .App-header {
+    position: relative;
+    z-index: 3;
+    padding-top: 150px;
+  }
+  
+  h1 {
+    font-size: 3em;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  p {
+    font-size: 1.5em;
+  }
+  
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #e0f7fa; /* Light blue background */
+            color: #333;
+        }
+
+        header {
+            background: #0288d1; /* Darker blue */
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ffdd40;
+        }
+
+        section {
+            padding: 50px;
+            margin: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 1.5s forwards ease-out;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0288d1;
+        }
+
+        /* Skills Section */
+        .skills-icons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .skill {
+            position: relative;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .skill i {
+            font-size: 3em;
+            color: #0288d1;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .skill:hover i {
+            transform: scale(1.2);
+            color: #ffdd40;
+        }
+
+        /* Skill name (tooltip) */
+        .skill span {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s ease-in-out;
+        }
+
+        .skill:hover span {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Project Card Hover Effect */
+        .project {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Add animations for headings */
+        h2::before {
+            content: "";
+            width: 50px;
+            height: 3px;
+            background: #ffdd40;
+            display: block;
+            margin: 0 auto 15px;
+            animation: grow 1.2s ease-out;
+        }
+
+        footer {
+            background: #0288d1;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Animation Keyframes */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Shraman Ratna Tuladhar</h1>
+        <p>Data Science Enthusiast | Programmer | Machine Learning Practitioner</p>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-icons">
+            <!-- Python -->
+            <div class="skill">
+                <i class="fab fa-python"></i>
+                <span>Python</span>
+            </div>
+            <!-- R -->
+            <div class="skill">
+                <i class="fas fa-chart-bar"></i> <!-- Using bar chart icon for R -->
+                <span>R</span>
+            </div>
+            <!-- JavaScript -->
+            <div class="skill">
+                <i class="fab fa-js-square"></i>
+                <span>JavaScript</span>
+            </div>
+            <!-- Pandas -->
+            <div class="skill">
+                <i class="fas fa-table"></i> <!-- Table icon to represent dataframes -->
+                <span>Pandas</span>
+            </div>
+            <!-- NumPy -->
+            <div class="skill">
+                <i class="fas fa-cubes"></i> <!-- Cube icon for arrays in NumPy -->
+                <span>NumPy</span>
+            </div>
+            <!-- Matplotlib -->
+            <div class="skill">
+                <i class="fas fa-chart-line"></i> <!-- Line chart icon -->
+                <span>Matplotlib</span>
+            </div>
+            <!-- Seaborn -->
+            <div class="skill">
+                <i class="fas fa-chart-area"></i> <!-- Area chart icon -->
+                <span>Seaborn</span>
+            </div>
+            <!-- Power BI -->
+            <div class="skill">
+                <i class="fas fa-chart-pie"></i> <!-- Pie chart icon -->
+                <span>Power BI</span>
+            </div>
+            <!-- Scikit-learn -->
+            <div class="skill">
+                <i class="fas fa-robot"></i> <!-- Robot icon for machine learning -->
+                <span>Scikit-learn</span>
+            </div>
+            <!-- TensorFlow -->
+            <div class="skill">
+                <i class="fas fa-brain"></i> <!-- Brain icon for TensorFlow -->
+                <span>TensorFlow</span>
+            </div>
+            <!-- Spacy -->
+            <div class="skill">
+                <i class="fas fa-language"></i> <!-- Language icon for NLP -->
+                <span>Spacy</span>
+            </div>
+            <!-- DialogFlow -->
+            <div class="skill">
+                <i class="fas fa-comments"></i> <!-- Chat icon for chatbot frameworks -->
+                <span>DialogFlow</span>
+            </div>
+            <!-- SQL -->
+            <div class="skill">
+                <i class="fas fa-database"></i>
+                <span>SQL</span>
+            </div>
+            <!-- Excel -->
+            <div class="skill">
+                <i class="fas fa-file-excel"></i> <!-- Excel file icon -->
+                <span>Microsoft Excel</span>
+            </div>
+            <!-- MongoDB -->
+            <div class="skill">
+                <i class="fas fa-leaf"></i> <!-- Leaf icon for MongoDB -->
+                <span>MongoDB</span>
+            </div>
+            <!-- Hadoop -->
+            <div class="skill">
+                <i class="fas fa-cloud"></i> <!-- Cloud icon for Big Data -->
+                <span>Hadoop</span>
+            </div>
+            <!-- Jupyter Notebook -->
+            <div class="skill">
+                <i class="fas fa-book"></i> <!-- Book icon for Jupyter Notebook -->
+                <span>Jupyter Notebook</span>
+            </div>
+            <!-- Git -->
+            <div class="skill">
+                <i class="fab fa-git-alt"></i>
+                <span>Git</span>
+            </div>
+            <!-- Streamlit -->
+            <div class="skill">
+                <i class="fas fa-laptop-code"></i> <!-- Laptop code icon for app development -->
+                <span>Streamlit</span>
+            </div>
+            <!-- Flask -->
+            <div class="skill">
+                <i class="fas fa-flask"></i> <!-- Flask icon for Flask framework -->
+                <span>Flask</span>
+            </div>
+            <!-- FastAPI -->
+            <div class="skill">
+                <i class="fas fa-rocket"></i> <!-- Rocket icon for FastAPI -->
+                <span>FastAPI</span>
+            </div>
+            <!-- AWS -->
+            <div class="skill">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+            </div>
+        </div>
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+    
+        <div class="project">
+            <div class="project-image">
+                <img src="sydney_prediction_img.png" alt="Sydney Home Prices Streamlit App",height='50',width='50'>
+            </div>
+            <div class="project-details">
+                <h3>Sydney Home Prices Streamlit App</h3>
+                <p>Developed a linear regression model to predict home prices in Sydney, deployed via AWS EC2 with an accuracy of 70%.</p>
+                <a href="https://github.com/ShramanTuladhar/Regression" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    
+        <div class="project">
+            <div class="project-image">
+                <img src="spam_detector_img.png" alt="Email Spam Detection App">
+            </div>
+            <div class="project-details">
+                <h3>Email Spam Detection App</h3>
+                <p>A spam detection app built using Naive Bayes and Streamlit, achieving 98% accuracy on over 5500 data points.</p>
+                <a href="https://github.com/ShramanTuladhar/Spam_detector" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    
+        <div class="project">
+            <div class="project-image">
+                <img src="path/to/fraud-detection.png" alt="Fraud Detection Model">
+            </div>
+            <div class="project-details">
+                <h3>Fraud Detection Model</h3>
+                <p>Created an artificial neural network model to detect credit card fraud with over 500,000 transactions, achieving 83% accuracy and 75% recall.</p>
+                <a href="https://github.com/ShramanTuladhar/credit_Fraud_detection" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    
+        <div class="project">
+            <div class="project-image">
+                <img src="path/to/fake-tweet-classification.png" alt="Fake Disaster Tweet Classification">
+            </div>
+            <div class="project-details">
+                <h3>Fake Disaster Tweet Classification</h3>
+                <p>An NLP project that classifies fake tweets related to disasters using Spacy and K-Nearest Neighbors, achieving an accuracy of 86%.</p>
+                <a href="https://github.com/ShramanTuladhar/Disaster_Tweets_Classification" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="padding: 50px; background-color: #f4f4f4; text-align: center; color: #333;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px; color: #2c3e50; animation: fadeIn 2s ease-in-out;">
+            Experience
+        </h2>
+        <div class="experience-item" style="margin: 20px auto; padding: 20px; max-width: 800px; background: #fff; border-radius: 10px; box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); animation: slideIn 2s ease-out;">
+            <h3 style="font-size: 1.5rem; color: #2980b9; margin-bottom: 10px;">
+                Private Mathematics and Computer Science Tutor
+            </h3>
+            <p style="font-size: 1rem; line-height: 1.6; color: #555;">
+                Provided tutoring in mathematics and C programming for high school students, developing teaching strategies and improving student performance.
+            </p>
+        </div>
+    </section>
+    
+    <style>
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideIn {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    </style>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <ul>
+            <li>Email: <a href="mailto:shramantldr@gmail.com">shramantldr@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://linkedin.com/in/shramantuladhar" target="_blank">LinkedIn Profile</a></li>
+            <li>GitHub: <a href="https://github.com/ShramanTuladhar" target="_blank">GitHub Profile</a></li>
+        </ul>
+    </section>
+    <footer>
+        <p>© 2024 Shraman Ratna Tuladhar</p>
+    </footer>
+
+</body>
+</html>
